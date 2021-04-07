@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">PokemonAndroidApp</string>
+    <string name="title_activity_lst_pokemon_view2">LstPokemonView2</string>
 </resources>
