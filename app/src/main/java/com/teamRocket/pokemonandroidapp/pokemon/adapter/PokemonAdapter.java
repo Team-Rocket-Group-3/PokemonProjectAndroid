@@ -58,6 +58,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
         Pokemon pokemon = lstPokemon.get(position);
 
         holder.name.setText(pokemon.getName());
+        holder.type.setText(pokemon.getType());
 
         Picasso.get().load(pokemon.getImageUrl()).into(holder.img);
 
@@ -66,6 +67,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), DescriptPokemonActivity.class);
                 intent.putExtra("name", pokemon.getName());
+                intent.putExtra("type", pokemon.getType());
                 intent.putExtra("img", pokemon.getImageUrl());
                 List<Ability> abilities = pokemon.getAbilities();
                 intent.putExtra("abilities", (Parcelable) abilities);
