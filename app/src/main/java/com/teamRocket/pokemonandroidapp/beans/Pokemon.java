@@ -11,7 +11,7 @@ public class Pokemon {
     private boolean evolution;
     private String imageUrl;
     //private String url;
-    private List<Game> game;
+    private Game game;
     private List<Ability> abilities;
 
     public long getId() {
@@ -70,11 +70,11 @@ public class Pokemon {
         this.url = url;
     }*/
 
-    public List<Game> getGame() {
+    public Game getGame() {
         return game;
     }
 
-    public void setGame(List<Game> game) {
+    public void setGame(Game game) {
         this.game = game;
     }
 
@@ -85,4 +85,6 @@ public class Pokemon {
     public void setAbilities(List<Ability> abilities) {
         this.abilities = abilities;
     }
+
+
 }

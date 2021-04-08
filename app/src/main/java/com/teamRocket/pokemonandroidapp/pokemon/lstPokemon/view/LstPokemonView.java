@@ -48,6 +48,7 @@ public class LstPokemonView extends AppCompatActivity implements LstPokemonInter
         // Crear un nuevo adaptador
         PokemonAdapter adapter = new PokemonAdapter(pokemons);
         recycler.setAdapter(adapter);
+
     }
 
     @Override
