@@ -1,11 +1,11 @@
-package com.teamRocket.pokemonandroidapp.lstPokemon.model;
+package com.teamRocket.pokemonandroidapp.pokemon.lstPokemon.model;
 
 import android.content.Context;
 
 import androidx.annotation.Nullable;
 
-import com.teamRocket.pokemonandroidapp.domain.Pokemon;
-import com.teamRocket.pokemonandroidapp.lstPokemon.contract.LstPokemonInterface;
+import com.teamRocket.pokemonandroidapp.beans.Pokemon;
+import com.teamRocket.pokemonandroidapp.pokemon.lstPokemon.contract.LstPokemonInterface;
 import com.teamRocket.pokemonandroidapp.retrofit.ApiClient;
 
 import java.util.ArrayList;
@@ -18,10 +18,11 @@ import retrofit2.Response;
 public class LstPokemonModel implements LstPokemonInterface.Model {
 
     @Override
-    public void getPokemonsWS(Context context, OnLstPokemonListener onLstPokemonListener) {
+    public void getPokemonsWS(Context context, final OnLstPokemonListener onLstPokemonListener) {
         ApiClient apiClient = new ApiClient(context);
-        final Call<List<Pokemon>> petition = apiClient.getMovies();
-        petition.enqueue(new Callback<List<Pokemon>>() {
+        final Call<List<Pokemon>> request = apiClient.getPokemons();
+
+        request.enqueue(new Callback<List<Pokemon>>() {
             @Override
             public void onResponse(@Nullable Call<List<Pokemon>> call, @Nullable Response<List<Pokemon>> response) {
                     if (response != null && response.body() != null) {
@@ -30,7 +31,7 @@ public class LstPokemonModel implements LstPokemonInterface.Model {
             }
 
             @Override
-            public void onFailure(Call<List<Pokemon>> call, Throwable t) {
+            public void onFailure(@Nullable Call<List<Pokemon>> call, @Nullable Throwable t) {
                 onLstPokemonListener.reject(t.getLocalizedMessage());
             }
         });

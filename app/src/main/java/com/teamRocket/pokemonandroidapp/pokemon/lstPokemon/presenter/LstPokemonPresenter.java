@@ -1,12 +1,12 @@
-package com.teamRocket.pokemonandroidapp.lstPokemon.presenter;
+package com.teamRocket.pokemonandroidapp.pokemon.lstPokemon.presenter;
 
 import android.content.Context;
 
-import com.teamRocket.pokemonandroidapp.domain.Pokemon;
-import com.teamRocket.pokemonandroidapp.lstPokemon.contract.LstPokemonInterface;
-import com.teamRocket.pokemonandroidapp.lstPokemon.model.LstPokemonModel;
+import com.teamRocket.pokemonandroidapp.beans.Pokemon;
+import com.teamRocket.pokemonandroidapp.pokemon.lstPokemon.contract.LstPokemonInterface;
+import com.teamRocket.pokemonandroidapp.pokemon.lstPokemon.model.LstPokemonModel;
 
-import java.util.ArrayList;
+import java.util.List;
 
 public class LstPokemonPresenter implements LstPokemonInterface.Presenter {
     private LstPokemonModel lstPokemonModel;
@@ -21,13 +21,13 @@ public class LstPokemonPresenter implements LstPokemonInterface.Presenter {
     public void getPokemons(Context context) {
         lstPokemonModel.getPokemonsWS(context, new LstPokemonInterface.Model.OnLstPokemonListener() {
             @Override
-            public void resolve(ArrayList<Pokemon> pokemons) {
+            public void resolve(List<Pokemon> pokemons) {
                 vista.success(pokemons);
             }
 
             @Override
             public void reject(String error) {
-                vista.error("No data");
+                vista.error(error);
             }
         });
     }

@@ -1,17 +1,15 @@
-package com.teamRocket.pokemonandroidapp.lstPokemon.contract;
+package com.teamRocket.pokemonandroidapp.pokemon.lstPokemon.contract;
 
 import android.content.Context;
 
-import com.teamRocket.pokemonandroidapp.domain.Pokemon;
+import com.teamRocket.pokemonandroidapp.beans.Pokemon;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public interface LstPokemonInterface {
     interface View {
         void success(List<Pokemon> pokemons);
-
-        void error(String mensage);
+        void error(String message);
 
     }
 
@@ -23,12 +21,9 @@ public interface LstPokemonInterface {
     interface Model {
         void getPokemonsWS(Context context, OnLstPokemonListener onLstPokemonListener);
 
-        /*Reactivo*/
             interface OnLstPokemonListener {
-                void resolve(ArrayList<Pokemon> pokemons);
-
+                void resolve(List<Pokemon> pokemons);
                 void reject(String error);
             }
-
     }
 }

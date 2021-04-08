@@ -2,7 +2,7 @@ package com.teamRocket.pokemonandroidapp.retrofit;
 
 import android.content.Context;
 
-import com.teamRocket.pokemonandroidapp.domain.Pokemon;
+import com.teamRocket.pokemonandroidapp.beans.Pokemon;
 
 import java.util.List;
 
@@ -23,8 +23,8 @@ public class ApiClient {
                 .build();
     }
 
-    public Call<List<Pokemon>> getMovies() {
-        PokemonsApiInterface service = retrofit.create(PokemonsApiInterface.class);
+    public Call<List<Pokemon>> getPokemons() {
+        PokemonApiInterface service = retrofit.create(PokemonApiInterface.class);
         return service.getPokemons();
     }
 }

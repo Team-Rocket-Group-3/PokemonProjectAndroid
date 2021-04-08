@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
 
-import com.teamRocket.pokemonandroidapp.lstPokemon.view.LstPokemonView;
+import com.teamRocket.pokemonandroidapp.pokemon.lstPokemon.view.LstPokemonView;
 
 public class MainActivity extends AppCompatActivity {
 
