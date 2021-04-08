@@ -1,13 +1,13 @@
 package com.teamRocket.pokemonandroidapp.beans;
 
-import java.time.LocalDate;
+
 
 public class Game {
 
     private long id;
     private String name;
     private String platform;
-    private LocalDate releaseDate;
+    private String releaseDate;
     private String gameImage;
 
     public long getId() {
@@ -34,11 +34,11 @@ public class Game {
         this.platform = platform;
     }
 
-    public LocalDate getReleaseDate() {
+    public String getReleaseDate() {
         return releaseDate;
     }
 
-    public void setReleaseDate(LocalDate releaseDate) {
+    public void setReleaseDate(String releaseDate) {
         this.releaseDate = releaseDate;
     }
 

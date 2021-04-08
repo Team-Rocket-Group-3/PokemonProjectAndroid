@@ -1,5 +1,6 @@
 package com.teamRocket.pokemonandroidapp.pokemon.adapter;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Parcelable;
 import android.view.LayoutInflater;
@@ -10,6 +11,7 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
 
 import com.squareup.picasso.Picasso;
 import com.teamRocket.pokemonandroidapp.R;
@@ -23,8 +25,10 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
 
     private List<Pokemon> lstPokemon;
 
+
     public PokemonAdapter(List<Pokemon> lstPokemon) {
         this.lstPokemon = lstPokemon;
+
     }
 
     public static class PokemonViewHolder extends RecyclerView.ViewHolder {
@@ -45,25 +49,25 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
     @Override
     public PokemonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View v = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.row_pokemon, parent, false);
+                .inflate(R.layout.list_pokemon_row, parent, false);
 
         return new PokemonViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull PokemonViewHolder  holder, int position) {
-        final Pokemon pokemon = lstPokemon.get(position);
+        Pokemon pokemon = lstPokemon.get(position);
 
         holder.name.setText(pokemon.getName());
 
-        //Picasso.get().load(pokemon.getUrl()).into(holder.img);
+        Picasso.get().load(pokemon.getImageUrl()).into(holder.img);
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(v.getContext(), DescriptPokemonActivity.class);
                 intent.putExtra("name", pokemon.getName());
-                //intent.putExtra("img", pokemon.getUrl());
+                intent.putExtra("img", pokemon.getImageUrl());
                 List<Ability> abilities = pokemon.getAbilities();
                 intent.putExtra("abilities", (Parcelable) abilities);
 
