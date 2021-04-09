@@ -6,7 +6,7 @@ public class Pokemon {
 
     private long id;
     private String name;
-    private int hp;
+    private String hp;
     private String type;
     private boolean evolution;
     private String imageUrl;
@@ -30,11 +30,11 @@ public class Pokemon {
         this.name = name;
     }
 
-    public int getHp() {
+    public String getHp() {
         return hp;
     }
 
-    public void setHp(int hp) {
+    public void setHp(String hp) {
         this.hp = hp;
     }
 

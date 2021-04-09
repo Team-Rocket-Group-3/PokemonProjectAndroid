@@ -1,6 +1,7 @@
 package com.teamRocket.pokemonandroidapp.pokemon.lstPokemon.view;
 
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -8,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.teamRocket.pokemonandroidapp.R;
+import com.teamRocket.pokemonandroidapp.beans.Ability;
 import com.teamRocket.pokemonandroidapp.beans.Pokemon;
 import com.teamRocket.pokemonandroidapp.pokemon.adapter.PokemonAdapter;
 import com.teamRocket.pokemonandroidapp.pokemon.lstPokemon.contract.LstPokemonInterface;
@@ -33,6 +35,7 @@ public class LstPokemonView extends AppCompatActivity implements LstPokemonInter
         lstPokemonPresenter.getPokemons(this);
 
     }
+
     @Override
     public void success(List<Pokemon> pokemons) {
         showDataInRecyclerView(pokemons);
