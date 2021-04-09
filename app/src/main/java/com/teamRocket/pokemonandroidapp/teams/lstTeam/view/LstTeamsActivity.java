@@ -1,17 +1,17 @@
 package com.teamRocket.pokemonandroidapp.teams.lstTeam.view;
 
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.widget.Toast;
-
 import com.teamRocket.pokemonandroidapp.R;
-import com.teamRocket.pokemonandroidapp.beans.Pokemon;
 import com.teamRocket.pokemonandroidapp.beans.Team;
-import com.teamRocket.pokemonandroidapp.pokemon.adapter.PokemonAdapter;
-import com.teamRocket.pokemonandroidapp.pokemon.lstPokemon.presenter.LstPokemonPresenter;
+import com.teamRocket.pokemonandroidapp.pokemon.lstPokemon.view.LstPokemonView;
 import com.teamRocket.pokemonandroidapp.teams.adapter.TeamAdapter;
 import com.teamRocket.pokemonandroidapp.teams.lstTeam.contract.LstTeamInterface;
 import com.teamRocket.pokemonandroidapp.teams.lstTeam.presenter.LstTeamPresenter;
@@ -42,6 +42,7 @@ public class LstTeamsActivity extends AppCompatActivity implements LstTeamInterf
     public void error(String message) {
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
+
     private void showDataInRecyclerView(List<Team> teams) {
         recycler.setHasFixedSize(true);
 
@@ -53,5 +54,11 @@ public class LstTeamsActivity extends AppCompatActivity implements LstTeamInterf
         TeamAdapter adapter = new TeamAdapter(teams);
         recycler.setAdapter(adapter);
 
+    }
+
+    public void goToPokemon(View view) {
+        Intent intent = new Intent(
+                getBaseContext(), LstPokemonView.class);
+        startActivity(intent);
     }
 }

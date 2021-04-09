@@ -6,8 +6,6 @@ import com.teamRocket.pokemonandroidapp.beans.Pokemon;
 import com.teamRocket.pokemonandroidapp.beans.Team;
 import com.teamRocket.pokemonandroidapp.pokemon.detailPokemon.contract.DetailPokemonInterface;
 import com.teamRocket.pokemonandroidapp.pokemon.detailPokemon.model.DetailPokemonModel;
-import com.teamRocket.pokemonandroidapp.teams.lstTeam.contract.LstTeamInterface;
-import com.teamRocket.pokemonandroidapp.teams.lstTeam.model.LstTeamModel;
 
 import java.util.List;
 
@@ -42,7 +40,7 @@ public class DetailPokemonPresenter implements DetailPokemonInterface.Presenter 
 
     @Override
     public void addPokemon(Context context) {
-        detailPokemonModel.addPokemon(context, trainerId, pokemon, new DetailPokemonInterface.Model.OnDetailAddPokemonListener() {
+        detailPokemonModel.addPokemon(context, teamId, pokemon, new DetailPokemonInterface.Model.OnDetailAddPokemonListener() {
 
             @Override
             public void resolve(String success) {
