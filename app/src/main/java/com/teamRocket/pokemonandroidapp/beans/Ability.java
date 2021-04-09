@@ -11,6 +11,48 @@ public class Ability implements Parcelable {
     private String description;
     private boolean general;
 
+    @Override
+    public String toString() {
+        return "Ability: " + "\n" +
+                "name: " + name + "\n" +
+                "pp: " + pp +"\n" +
+                "description: " + description
+                ;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeLong(this.id);
+        dest.writeString(this.name);
+        dest.writeInt(this.pp);
+        dest.writeString(this.description);
+    }
+
+    protected Ability(Parcel in) {
+        id = in.readLong();
+        name = in.readString();
+        pp = in.readInt();
+        description = in.readString();
+        general = in.readByte() != 0;
+    }
+
+    public static final Creator<Ability> CREATOR = new Creator<Ability>() {
+        @Override
+        public Ability createFromParcel(Parcel in) {
+            return new Ability(in);
+        }
+
+        @Override
+        public Ability[] newArray(int size) {
+            return new Ability[size];
+        }
+    };
+
     public long getId() {
         return id;
     }
@@ -50,37 +92,4 @@ public class Ability implements Parcelable {
     public void setGeneral(boolean general) {
         this.general = general;
     }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeLong(this.id);
-        dest.writeString(this.name);
-        dest.writeInt(this.pp);
-        dest.writeString(this.description);
-    }
-
-    protected Ability(Parcel in) {
-        id = in.readLong();
-        name = in.readString();
-        pp = in.readInt();
-        description = in.readString();
-        general = in.readByte() != 0;
-    }
-
-    public static final Creator<Ability> CREATOR = new Creator<Ability>() {
-        @Override
-        public Ability createFromParcel(Parcel in) {
-            return new Ability(in);
-        }
-
-        @Override
-        public Ability[] newArray(int size) {
-            return new Ability[size];
-        }
-    };
 }

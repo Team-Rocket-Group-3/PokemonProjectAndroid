@@ -69,9 +69,13 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
                 intent.putExtra("name", pokemon.getName());
                 intent.putExtra("type", pokemon.getType());
                 intent.putExtra("img", pokemon.getImageUrl());
-                List<Ability> abilities = pokemon.getAbilities();
-                intent.putExtra("abilities", (Parcelable) abilities);
+                intent.putExtra("hp", pokemon.getHp());
+                intent.putExtra("type", pokemon.getType());
 
+//                List<Ability> abilities = pokemon.getAbilities();
+//                intent.putExtra("abilities", (Parcelable) abilities);
+                intent.putExtra("ability1",pokemon.getAbilities().get(0).toString());
+                intent.putExtra("ability2",pokemon.getAbilities().get(1).toString());
                 v.getContext().startActivity(intent);
             }
         });
