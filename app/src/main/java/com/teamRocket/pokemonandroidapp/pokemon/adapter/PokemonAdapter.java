@@ -10,7 +10,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-
 import com.squareup.picasso.Picasso;
 import com.teamRocket.pokemonandroidapp.R;
 import com.teamRocket.pokemonandroidapp.beans.Pokemon;
@@ -65,15 +64,17 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
                 Intent intent = new Intent(v.getContext(), DetailPokemonActivity.class);
                 intent.putExtra("name", pokemon.getName());
                 intent.putExtra("type", pokemon.getType());
-                intent.putExtra("img", pokemon.getImageUrl());
+                intent.putExtra("imgUrl", pokemon.getImageUrl());
                 intent.putExtra("hp", pokemon.getHp());
                 intent.putExtra("type", pokemon.getType());
                 intent.putExtra("id", pokemon.getId());
+                intent.putExtra("img", pokemon.getImage());
+                ;
 
 //                List<Ability> abilities = pokemon.getAbilities();
 //                intent.putExtra("abilities", (Parcelable) abilities);
-                intent.putExtra("ability1",pokemon.getAbilities().get(0).toString());
-                intent.putExtra("ability2",pokemon.getAbilities().get(1).toString());
+                intent.putExtra("ability1", pokemon.getAbilities().get(0).toString());
+                intent.putExtra("ability2", pokemon.getAbilities().get(1).toString());
                 v.getContext().startActivity(intent);
             }
         });

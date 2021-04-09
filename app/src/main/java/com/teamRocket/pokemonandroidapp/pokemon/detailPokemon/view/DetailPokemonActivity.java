@@ -1,6 +1,6 @@
 package com.teamRocket.pokemonandroidapp.pokemon.detailPokemon.view;
 
-import android.content.Context;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -17,7 +17,6 @@ import com.teamRocket.pokemonandroidapp.beans.Pokemon;
 import com.teamRocket.pokemonandroidapp.beans.Team;
 import com.teamRocket.pokemonandroidapp.pokemon.detailPokemon.contract.DetailPokemonInterface;
 import com.teamRocket.pokemonandroidapp.pokemon.detailPokemon.presenter.DetailPokemonPresenter;
-import com.teamRocket.pokemonandroidapp.pokemon.lstPokemon.presenter.LstPokemonPresenter;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +26,7 @@ public class DetailPokemonActivity extends AppCompatActivity implements DetailPo
 
 
     private String name;
+    private String imgUrl;
     private String img;
     private String hp;
     private String type;
@@ -52,12 +52,13 @@ public class DetailPokemonActivity extends AppCompatActivity implements DetailPo
     }
     private void getIncomingIntent() {
         this.name = getIntent().getStringExtra("name");
-        this.img = getIntent().getStringExtra("img");
+        this.imgUrl = getIntent().getStringExtra("imgUrl");
         this.hp = getIntent().getStringExtra("hp");
         this.type = getIntent().getStringExtra("type");
         this.ability1 = getIntent().getStringExtra("ability1");
         this.ability2 = getIntent().getStringExtra("ability2");
-        this.id = getIntent().getLongExtra("id",0);
+        this.id = getIntent().getLongExtra("id", 0);
+        this.img = getIntent().getStringExtra("img");
 
 
     }
@@ -77,8 +78,8 @@ public class DetailPokemonActivity extends AppCompatActivity implements DetailPo
 
         //relleno layout
         nameDetails.setText(name);
-        descriptionDetails.setText("hp: "+hp+"\n"+ "type: "+type);
-        Picasso.get().load(img).into(imageDetails);
+        descriptionDetails.setText("hp: " + hp + "\n" + "type: " + type);
+        Picasso.get().load(imgUrl).into(imageDetails);
 
         //relleno abilities
         ability1Details.setText(ability1);
@@ -96,15 +97,18 @@ public class DetailPokemonActivity extends AppCompatActivity implements DetailPo
         ArrayAdapter<String> stringArrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_dropdown_item, spinnerTeams);
         spinner.setAdapter(stringArrayAdapter);
     }
-    public void addPokemon(View view){
-       Team team = teams.get(spinner.getSelectedItemPosition());
+    public void addPokemon(View view) {
+        Team team = teams.get(spinner.getSelectedItemPosition());
         Pokemon pokemon = new Pokemon();
         pokemon.setId(id);
         pokemon.setName(name);
+        pokemon.setHp(hp);
+        pokemon.setImageUrl(imgUrl);
+        pokemon.setType(type);
+        pokemon.setImage(img);
         detailPokemonPresenter.setPokemon(pokemon);
         detailPokemonPresenter.setTeamId(String.valueOf(team.getId()));
         detailPokemonPresenter.addPokemon(this);
-
     }
 
 
