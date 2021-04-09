@@ -8,6 +8,11 @@ public class Team {
     private String name;
     private List<Pokemon> pokemons;
 
+    @Override
+    public String toString() {
+        return name;
+    }
+
     public long getId() {
         return id;
     }

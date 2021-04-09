@@ -14,7 +14,7 @@
         android:usesCleartextTraffic="true">
         <activity android:name=".teams.lstTeam.view.LstTeamsActivity"></activity>
         <activity android:name=".pokemon.lstPokemon.view.LstPokemonView" />
-        <activity android:name=".pokemon.lstPokemon.view.DetailPokemonActivity" />
+        <activity android:name=".pokemon.detailPokemon.view.DetailPokemonActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
