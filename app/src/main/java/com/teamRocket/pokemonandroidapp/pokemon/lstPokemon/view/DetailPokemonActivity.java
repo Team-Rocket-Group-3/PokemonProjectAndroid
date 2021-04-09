@@ -14,7 +14,7 @@ import com.teamRocket.pokemonandroidapp.beans.Ability;
 
 import java.util.List;
 
-public class DescriptPokemonActivity extends AppCompatActivity {
+public class DetailPokemonActivity extends AppCompatActivity {
 
 
     private String name;

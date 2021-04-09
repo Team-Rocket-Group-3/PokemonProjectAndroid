@@ -1,8 +1,6 @@
 package com.teamRocket.pokemonandroidapp.pokemon.adapter;
 
-import android.content.Context;
 import android.content.Intent;
-import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,9 +13,8 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 import com.teamRocket.pokemonandroidapp.R;
-import com.teamRocket.pokemonandroidapp.beans.Ability;
 import com.teamRocket.pokemonandroidapp.beans.Pokemon;
-import com.teamRocket.pokemonandroidapp.pokemon.lstPokemon.view.DescriptPokemonActivity;
+import com.teamRocket.pokemonandroidapp.pokemon.lstPokemon.view.DetailPokemonActivity;
 
 import java.util.List;
 
@@ -65,7 +62,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(v.getContext(), DescriptPokemonActivity.class);
+                Intent intent = new Intent(v.getContext(), DetailPokemonActivity.class);
                 intent.putExtra("name", pokemon.getName());
                 intent.putExtra("type", pokemon.getType());
                 intent.putExtra("img", pokemon.getImageUrl());
