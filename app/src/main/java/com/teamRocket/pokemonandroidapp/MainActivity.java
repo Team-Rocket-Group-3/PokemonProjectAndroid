@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 
 import com.teamRocket.pokemonandroidapp.pokemon.lstPokemon.view.LstPokemonView;
 
@@ -13,7 +14,21 @@ public class MainActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Intent navegar = new Intent(getBaseContext(), LstPokemonView.class);
-        startActivity(navegar);
+
+        final Handler handler = new Handler();
+        handler.postDelayed(
+                new Runnable() { // Interface
+                    @Override
+                    public void run() {
+                        // Cargar la 2ª pantalla
+                        Intent intent = new Intent(
+                                getBaseContext(), LstPokemonView.class);
+                        startActivity(intent);
+                    }
+                }
+                , 3000
+        );
     }
+
+
 }
