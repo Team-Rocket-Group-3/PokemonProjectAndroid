@@ -12,8 +12,32 @@
         android:layout_height="wrap_content"
         android:padding="@dimen/recyclerView_generalPadding" />
 
+    <EditText
+        android:id="@+id/teamName"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/goToPokemon"
+        android:layout_marginBottom="4dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="@string/teamTextField" />
+
     <Button
-        android:id="@+id/outlinedButton"
+        android:id="@+id/addTeam"
+        style="?attr/materialButtonOutlinedStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="7dp"
+        android:layout_marginBottom="49dp"
+        android:layout_toEndOf="@+id/teamName"
+        android:onClick="AddTeam"
+        android:text="@string/add_poketeam" />
+
+    <Button
+        android:id="@+id/goToPokemon"
         style="?attr/materialButtonOutlinedStyle"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -4,7 +4,6 @@ import android.content.Context;
 
 import com.teamRocket.pokemonandroidapp.beans.Pokemon;
 import com.teamRocket.pokemonandroidapp.beans.Team;
-import com.teamRocket.pokemonandroidapp.teams.lstTeam.contract.LstTeamInterface;
 
 import java.util.List;
 
@@ -25,15 +24,19 @@ public interface DetailPokemonInterface {
     }
 
     interface Model {
-        void addPokemon(Context context, String teamId, Pokemon pokemon,OnDetailAddPokemonListener onDetailAddPokemonListener);
-        void getTeamsWS(Context context, String trainerId, DetailPokemonInterface.Model.OnDetailPokemonListener onDetailPokemonListener);
+        void addPokemon(Context context, long teamId, Pokemon pokemon, OnDetailAddPokemonListener onDetailAddPokemonListener);
+
+        void getTeamsWS(Context context, long trainerId, DetailPokemonInterface.Model.OnDetailPokemonListener onDetailPokemonListener);
 
         interface OnDetailPokemonListener {
             void resolve(List<Team> teams);
+
             void reject(String error);
         }
+
         interface OnDetailAddPokemonListener {
             void resolve(String success);
+
             void reject(String error);
         }
     }

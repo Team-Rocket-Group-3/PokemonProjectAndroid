@@ -7,7 +7,6 @@ import com.teamRocket.pokemonandroidapp.beans.Team;
 import com.teamRocket.pokemonandroidapp.pokemon.detailPokemon.contract.DetailPokemonInterface;
 import com.teamRocket.pokemonandroidapp.retrofit.ApiClient;
 
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,9 +16,9 @@ import retrofit2.Response;
 
 public class DetailPokemonModel implements DetailPokemonInterface.Model {
     @Override
-    public void addPokemon(Context context, String teamId, Pokemon pokemon, OnDetailAddPokemonListener onDetailAddPokemonListener) {
+    public void addPokemon(Context context, long teamId, Pokemon pokemon, OnDetailAddPokemonListener onDetailAddPokemonListener) {
         ApiClient apiClient = new ApiClient(context);
-        final Call<Pokemon> request = apiClient.addPokemontoTeam(teamId,pokemon);
+        final Call<Pokemon> request = apiClient.addPokemontoTeam(teamId, pokemon);
         request.enqueue(new Callback<Pokemon>() {
             @Override
             public void onResponse(Call<Pokemon> call, Response<Pokemon> response) {
@@ -34,7 +33,7 @@ public class DetailPokemonModel implements DetailPokemonInterface.Model {
     }
 
     @Override
-    public void getTeamsWS(Context context, String trainerId, DetailPokemonInterface.Model.OnDetailPokemonListener onDetailPokemonListener) {
+    public void getTeamsWS(Context context, long trainerId, DetailPokemonInterface.Model.OnDetailPokemonListener onDetailPokemonListener) {
         ApiClient apiClient = new ApiClient(context);
         final Call<List<Team>> request = apiClient.getTeams(trainerId);
 

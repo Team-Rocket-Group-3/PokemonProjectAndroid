@@ -9,7 +9,6 @@ import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
-import retrofit2.http.PUT;
 import retrofit2.http.Path;
 
 public interface PokemonApiInterface {
@@ -18,9 +17,11 @@ public interface PokemonApiInterface {
     Call<List<Pokemon>> getPokemons();
 
     @GET("team/{id}")
-    Call<List<Team>> getTeams(@Path("id") String id);
+    Call<List<Team>> getTeams(@Path("id") long id);
 
     @POST("/team/{id}")
-    Call<Pokemon> addPokemonToTeam(@Path("id") String id,@Body Pokemon pokemon);
+    Call<Pokemon> addPokemonToTeam(@Path("id") long id, @Body Pokemon pokemon);
 
+    @POST("/team/")
+    Call<Team> addTeam(@Body Team team);
 }

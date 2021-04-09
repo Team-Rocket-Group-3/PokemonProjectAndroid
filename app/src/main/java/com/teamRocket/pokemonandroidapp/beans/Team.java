@@ -7,6 +7,7 @@ public class Team {
     private long id;
     private String name;
     private List<Pokemon> pokemons;
+    private Trainer trainer;
 
     @Override
     public String toString() {
@@ -31,6 +32,14 @@ public class Team {
 
     public List<Pokemon> getPokemons() {
         return pokemons;
+    }
+
+    public Trainer getTrainer() {
+        return trainer;
+    }
+
+    public void setTrainer(Trainer trainer) {
+        this.trainer = trainer;
     }
 
     public void setPokemons(List<Pokemon> pokemons) {

@@ -35,7 +35,7 @@ public class DetailPokemonActivity extends AppCompatActivity implements DetailPo
     private long id;
     private Spinner spinner;
     private List<Team> teams;
-    private String trainerId = "1";
+    private long trainerId = 1;
     private DetailPokemonPresenter detailPokemonPresenter;
     private ArrayList<String> spinnerTeams;
     @Override
@@ -107,7 +107,7 @@ public class DetailPokemonActivity extends AppCompatActivity implements DetailPo
         pokemon.setType(type);
         pokemon.setImage(img);
         detailPokemonPresenter.setPokemon(pokemon);
-        detailPokemonPresenter.setTeamId(String.valueOf(team.getId()));
+        detailPokemonPresenter.setTeamId(team.getId());
         detailPokemonPresenter.addPokemon(this);
     }
 

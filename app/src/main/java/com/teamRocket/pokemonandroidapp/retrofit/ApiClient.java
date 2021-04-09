@@ -29,12 +29,18 @@ public class ApiClient {
         return service.getPokemons();
     }
 
-    public Call<List<Team>> getTeams(String trainerId){
+    public Call<List<Team>> getTeams(long trainerId) {
         PokemonApiInterface service = retrofit.create(PokemonApiInterface.class);
         return service.getTeams(trainerId);
     }
-    public Call<Pokemon> addPokemontoTeam(String trainerId,Pokemon pokemon){
+
+    public Call<Pokemon> addPokemontoTeam(long trainerId, Pokemon pokemon) {
         PokemonApiInterface service = retrofit.create(PokemonApiInterface.class);
-        return service.addPokemonToTeam(trainerId,pokemon);
+        return service.addPokemonToTeam(trainerId, pokemon);
+    }
+
+    public Call<Team> addTeam(Team team) {
+        PokemonApiInterface service = retrofit.create(PokemonApiInterface.class);
+        return service.addTeam(team);
     }
 }

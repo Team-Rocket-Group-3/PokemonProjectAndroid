@@ -12,11 +12,11 @@ import java.util.List;
 public class DetailPokemonPresenter implements DetailPokemonInterface.Presenter {
     private DetailPokemonModel detailPokemonModel;
     private DetailPokemonInterface.View vista;
-    private String trainerId;
-    private String teamId;
+    private long trainerId;
+    private long teamId;
     private Pokemon pokemon;
 
-    public DetailPokemonPresenter(DetailPokemonInterface.View vista, String trainerId) {
+    public DetailPokemonPresenter(DetailPokemonInterface.View vista, long trainerId) {
         this.detailPokemonModel = new DetailPokemonModel();
         this.vista = vista;
         this.trainerId = trainerId;
@@ -58,7 +58,7 @@ public class DetailPokemonPresenter implements DetailPokemonInterface.Presenter 
         this.pokemon = pokemon;
     }
 
-    public void setTeamId(String teamId) {
+    public void setTeamId(long teamId) {
         this.teamId = teamId;
     }
 }

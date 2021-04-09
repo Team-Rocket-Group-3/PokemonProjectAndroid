@@ -11,9 +11,9 @@ import java.util.List;
 public class LstTeamPresenter implements LstTeamInterface.Presenter {
     private LstTeamModel lstTeamModel;
     private LstTeamInterface.View vista;
-    private String trainerId;
+    private long trainerId;
 
-    public LstTeamPresenter(LstTeamInterface.View vista, String trainerId) {
+    public LstTeamPresenter(LstTeamInterface.View vista, long trainerId) {
         this.lstTeamModel = new LstTeamModel();
         this.vista = vista;
         this.trainerId = trainerId;
@@ -30,6 +30,21 @@ public class LstTeamPresenter implements LstTeamInterface.Presenter {
             @Override
             public void reject(String error) {
                 vista.error(error);
+            }
+        });
+    }
+
+    @Override
+    public void addTeams(Context context, Team team) {
+        lstTeamModel.addTeam(context, team, new LstTeamInterface.Model.OnLstAddTeamListener() {
+            @Override
+            public void resolve(String string) {
+                vista.succesAdd(string);
+            }
+
+            @Override
+            public void reject(String error) {
+                vista.errorAdd(error);
             }
         });
     }

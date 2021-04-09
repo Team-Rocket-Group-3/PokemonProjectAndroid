@@ -4,4 +4,6 @@
     <string name="add_pokemon">add Pokemon</string>
     <string name="pokemonListbutton">Pokemon list</string>
     <string name="lstPokemonButton">PokeTeams</string>
+    <string name="teamTextField">Name</string>
+    <string name="add_poketeam">Add PokeTeam</string>
 </resources>

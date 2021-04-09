@@ -3,6 +3,7 @@ package com.teamRocket.pokemonandroidapp.teams.lstTeam.view;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -11,6 +12,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.teamRocket.pokemonandroidapp.R;
 import com.teamRocket.pokemonandroidapp.beans.Team;
+import com.teamRocket.pokemonandroidapp.beans.Trainer;
 import com.teamRocket.pokemonandroidapp.pokemon.lstPokemon.view.LstPokemonView;
 import com.teamRocket.pokemonandroidapp.teams.adapter.TeamAdapter;
 import com.teamRocket.pokemonandroidapp.teams.lstTeam.contract.LstTeamInterface;
@@ -22,7 +24,7 @@ public class LstTeamsActivity extends AppCompatActivity implements LstTeamInterf
     private RecyclerView recycler;
     private LstTeamPresenter lstTeamPresenter;
     private RecyclerView.LayoutManager lManager;
-    private String trainerId = "1";
+    private long trainerId = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -43,6 +45,16 @@ public class LstTeamsActivity extends AppCompatActivity implements LstTeamInterf
         Toast.makeText(getApplicationContext(), message, Toast.LENGTH_SHORT).show();
     }
 
+    @Override
+    public void succesAdd(String string) {
+        Toast.makeText(getApplicationContext(), string, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void errorAdd(String string) {
+        Toast.makeText(getApplicationContext(), string, Toast.LENGTH_SHORT).show();
+    }
+
     private void showDataInRecyclerView(List<Team> teams) {
         recycler.setHasFixedSize(true);
 
@@ -60,5 +72,18 @@ public class LstTeamsActivity extends AppCompatActivity implements LstTeamInterf
         Intent intent = new Intent(
                 getBaseContext(), LstPokemonView.class);
         startActivity(intent);
+    }
+
+    public void AddTeam(View view) {
+        EditText editText = (EditText) findViewById(R.id.teamName);
+        String teamName = String.valueOf(editText.getText());
+        Team team = new Team();
+        team.setName(teamName);
+        Trainer trainer = new Trainer();
+        trainer.setId(trainerId);
+        team.setTrainer(trainer);
+        lstTeamPresenter.addTeams(this, team);
+        lstTeamPresenter.getTeams(this);
+
     }
 }
