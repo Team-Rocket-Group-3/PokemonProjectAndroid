@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.os.Handler;
 
 import com.teamRocket.pokemonandroidapp.pokemon.lstPokemon.view.LstPokemonView;
+import com.teamRocket.pokemonandroidapp.teams.lstTeam.view.LstTeamsActivity;
 
 public class MainActivity extends AppCompatActivity {
 

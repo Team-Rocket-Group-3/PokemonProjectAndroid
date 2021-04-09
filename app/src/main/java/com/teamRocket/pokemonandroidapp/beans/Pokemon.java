@@ -14,6 +14,11 @@ public class Pokemon {
     private Game game;
     private List<Ability> abilities;
 
+    @Override
+    public String toString() {
+        return name;
+    }
+
     public long getId() {
         return id;
     }
