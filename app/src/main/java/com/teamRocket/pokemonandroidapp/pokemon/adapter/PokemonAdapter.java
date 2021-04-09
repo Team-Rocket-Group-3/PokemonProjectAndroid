@@ -14,7 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.squareup.picasso.Picasso;
 import com.teamRocket.pokemonandroidapp.R;
 import com.teamRocket.pokemonandroidapp.beans.Pokemon;
-import com.teamRocket.pokemonandroidapp.pokemon.lstPokemon.view.DetailPokemonActivity;
+import com.teamRocket.pokemonandroidapp.pokemon.detailPokemon.view.DetailPokemonActivity;
 
 import java.util.List;
 
@@ -68,6 +68,7 @@ public class PokemonAdapter extends RecyclerView.Adapter<PokemonAdapter.PokemonV
                 intent.putExtra("img", pokemon.getImageUrl());
                 intent.putExtra("hp", pokemon.getHp());
                 intent.putExtra("type", pokemon.getType());
+                intent.putExtra("id", pokemon.getId());
 
 //                List<Ability> abilities = pokemon.getAbilities();
 //                intent.putExtra("abilities", (Parcelable) abilities);

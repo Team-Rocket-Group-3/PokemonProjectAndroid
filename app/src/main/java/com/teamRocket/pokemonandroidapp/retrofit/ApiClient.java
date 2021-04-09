@@ -33,4 +33,8 @@ public class ApiClient {
         PokemonApiInterface service = retrofit.create(PokemonApiInterface.class);
         return service.getTeams(trainerId);
     }
+    public Call<Pokemon> addPokemontoTeam(String trainerId,Pokemon pokemon){
+        PokemonApiInterface service = retrofit.create(PokemonApiInterface.class);
+        return service.addPokemonToTeam(trainerId,pokemon);
+    }
 }
