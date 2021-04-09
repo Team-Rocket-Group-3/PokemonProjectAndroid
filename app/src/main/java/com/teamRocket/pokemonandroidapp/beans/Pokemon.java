@@ -10,6 +10,7 @@ public class Pokemon {
     private String type;
     private boolean evolution;
     private String imageUrl;
+    private String image;
     //private String url;
     private Game game;
     private List<Ability> abilities;
@@ -91,5 +92,11 @@ public class Pokemon {
         this.abilities = abilities;
     }
 
+    public String getImage() {
+        return image;
+    }
 
+    public void setImage(String image) {
+        this.image = image;
+    }
 }
