@@ -3,6 +3,7 @@ package com.teamRocket.pokemonandroidapp.retrofit;
 import android.content.Context;
 
 import com.teamRocket.pokemonandroidapp.beans.Pokemon;
+import com.teamRocket.pokemonandroidapp.beans.Team;
 
 import java.util.List;
 
@@ -26,5 +27,10 @@ public class ApiClient {
     public Call<List<Pokemon>> getPokemons() {
         PokemonApiInterface service = retrofit.create(PokemonApiInterface.class);
         return service.getPokemons();
+    }
+
+    public Call<List<Team>> getTeams(String trainerId){
+        PokemonApiInterface service = retrofit.create(PokemonApiInterface.class);
+        return service.getTeams(trainerId);
     }
 }

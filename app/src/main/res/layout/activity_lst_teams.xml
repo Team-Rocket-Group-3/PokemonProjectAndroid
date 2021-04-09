@@ -5,12 +5,12 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".pokemon.lstPokemon.view.LstPokemonView">
+    tools:context=".teams.lstTeam.view.LstTeamsActivity">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerPokemon"
+        android:id="@+id/recyclerTeam"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:padding="@dimen/recyclerView_generalPadding"/>
-</LinearLayout>
 
+</LinearLayout>
