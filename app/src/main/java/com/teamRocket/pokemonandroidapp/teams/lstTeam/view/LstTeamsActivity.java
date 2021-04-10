@@ -51,6 +51,7 @@ public class LstTeamsActivity extends AppCompatActivity implements LstTeamInterf
     @Override
     public void succesAdd(String string) {
         Toast.makeText(getApplicationContext(), string, Toast.LENGTH_SHORT).show();
+        lstTeamPresenter.getTeams(this, trainerId);
     }
 
     @Override
@@ -83,7 +84,5 @@ public class LstTeamsActivity extends AppCompatActivity implements LstTeamInterf
         team.setName(teamName);
 
         lstTeamPresenter.addTeams(this, trainerId, team);
-        lstTeamPresenter.getTeams(this, trainerId);
-
     }
 }

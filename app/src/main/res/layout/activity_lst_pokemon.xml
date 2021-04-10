@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:context=".pokemon.lstPokemon.view.LstPokemonView">
-
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recyclerPokemon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="@dimen/recyclerView_generalPadding" />
 
     <Button
         android:id="@+id/lstPokemonButton"
@@ -20,5 +15,11 @@
         android:layout_alignParentBottom="true"
         android:onClick="goToTeams"
         android:text="@string/lstPokemonButton" />
-</RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerPokemon"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/recyclerView_generalPadding" />
+</LinearLayout>
 
