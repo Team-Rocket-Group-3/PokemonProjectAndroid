@@ -4,6 +4,7 @@ import android.content.Context;
 
 import com.teamRocket.pokemonandroidapp.beans.Pokemon;
 import com.teamRocket.pokemonandroidapp.beans.Team;
+import com.teamRocket.pokemonandroidapp.beans.Trainer;
 
 import java.util.List;
 
@@ -39,8 +40,14 @@ public class ApiClient {
         return service.addPokemonToTeam(trainerId, pokemon);
     }
 
-    public Call<Team> addTeam(Team team) {
+    public Call<Team> addTeam(long trainerId, Team team) {
         PokemonApiInterface service = retrofit.create(PokemonApiInterface.class);
-        return service.addTeam(team);
+        return service.addTeam(trainerId, team);
     }
+
+    public Call<Trainer> login(String name, String password) {
+        PokemonApiInterface service = retrofit.create(PokemonApiInterface.class);
+        return service.login(name, password);
+    }
+
 }

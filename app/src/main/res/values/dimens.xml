@@ -3,4 +3,5 @@
     <dimen name="recyclerView_generalPadding">3dp</dimen>
     <dimen name="card_corner_radius">12dp</dimen>
     <dimen name="card_elevation">4dp</dimen>
+    <dimen name="general_padding">20dp</dimen>
 </resources>

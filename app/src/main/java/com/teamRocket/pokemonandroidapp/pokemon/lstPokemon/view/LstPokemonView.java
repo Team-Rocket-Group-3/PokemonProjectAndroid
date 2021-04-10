@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.teamRocket.pokemonandroidapp.R;
 import com.teamRocket.pokemonandroidapp.beans.Pokemon;
+import com.teamRocket.pokemonandroidapp.beans.Trainer;
 import com.teamRocket.pokemonandroidapp.pokemon.adapter.PokemonAdapter;
 import com.teamRocket.pokemonandroidapp.pokemon.lstPokemon.contract.LstPokemonInterface;
 import com.teamRocket.pokemonandroidapp.pokemon.lstPokemon.presenter.LstPokemonPresenter;
@@ -24,6 +25,7 @@ public class LstPokemonView extends AppCompatActivity implements LstPokemonInter
     private LstPokemonPresenter lstPokemonPresenter;
     private RecyclerView.LayoutManager lManager;
     private PokemonAdapter.RecyclerViewClickListener listener;
+    private long trainerId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,6 +37,7 @@ public class LstPokemonView extends AppCompatActivity implements LstPokemonInter
         lstPokemonPresenter = new LstPokemonPresenter(this);
         lstPokemonPresenter.getPokemons(this);
 
+        trainerId = getIntent().getLongExtra("trainerId", 0);
     }
 
     @Override
@@ -61,8 +64,9 @@ public class LstPokemonView extends AppCompatActivity implements LstPokemonInter
     }
 
     public void goToTeams(View view) {
-        Intent intent = new Intent(
-                getBaseContext(), LstTeamsActivity.class);
+        Intent intent = new Intent(getBaseContext(), LstTeamsActivity.class);
+        // Send the object trainer with the key "Trainer" to the next activity
+        intent.putExtra("trainerId", trainerId);
         startActivity(intent);
     }
 }

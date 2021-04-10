@@ -8,6 +8,7 @@ import android.os.Handler;
 
 import com.teamRocket.pokemonandroidapp.pokemon.lstPokemon.view.LstPokemonView;
 import com.teamRocket.pokemonandroidapp.teams.lstTeam.view.LstTeamsActivity;
+import com.teamRocket.pokemonandroidapp.trainer.login.view.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
                     public void run() {
                         // Cargar la 2ª pantalla
                         Intent intent = new Intent(
-                                getBaseContext(), LstPokemonView.class);
+                                getBaseContext(), LoginActivity.class);
                         startActivity(intent);
                     }
                 }
