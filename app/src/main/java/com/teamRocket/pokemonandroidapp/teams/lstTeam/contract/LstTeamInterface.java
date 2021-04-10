@@ -19,15 +19,15 @@ public interface LstTeamInterface {
     }
 
     interface Presenter {
-        void getTeams(Context context);
+        void getTeams(Context context, long trainerId);
 
-        void addTeams(Context context, Team team);
+        void addTeams(Context context, long trainerId, Team team);
     }
 
     interface Model {
         void getTeamsWS(Context context, long trainerId, OnLstTeamListener onLstTeamListener);
 
-        void addTeam(Context context, Team team, OnLstAddTeamListener onLstAddTeamListener);
+        void addTeam(Context context,  long trainerId, Team team, OnLstAddTeamListener onLstAddTeamListener);
 
         interface OnLstAddTeamListener {
             void resolve(String string);

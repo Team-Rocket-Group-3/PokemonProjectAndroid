@@ -6,4 +6,7 @@
     <string name="lstPokemonButton">PokeTeams</string>
     <string name="teamTextField">Name</string>
     <string name="add_poketeam">Add PokeTeam</string>
+    <string name="activity_login_button">LOGIN</string>
+    <string name="activity_login_username">Username</string>
+    <string name="activity_login_password">Password</string>
 </resources>

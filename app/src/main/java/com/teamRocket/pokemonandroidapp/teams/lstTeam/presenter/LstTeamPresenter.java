@@ -20,7 +20,7 @@ public class LstTeamPresenter implements LstTeamInterface.Presenter {
     }
 
     @Override
-    public void getTeams(Context context) {
+    public void getTeams(Context context, long trainerId) {
         lstTeamModel.getTeamsWS(context,trainerId, new LstTeamInterface.Model.OnLstTeamListener(){
             @Override
             public void resolve(List<Team> teams) {
@@ -35,8 +35,8 @@ public class LstTeamPresenter implements LstTeamInterface.Presenter {
     }
 
     @Override
-    public void addTeams(Context context, Team team) {
-        lstTeamModel.addTeam(context, team, new LstTeamInterface.Model.OnLstAddTeamListener() {
+    public void addTeams(Context context, long trainerId, Team team) {
+        lstTeamModel.addTeam(context, trainerId, team, new LstTeamInterface.Model.OnLstAddTeamListener() {
             @Override
             public void resolve(String string) {
                 vista.succesAdd(string);

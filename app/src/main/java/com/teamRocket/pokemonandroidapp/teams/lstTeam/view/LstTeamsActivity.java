@@ -24,15 +24,18 @@ public class LstTeamsActivity extends AppCompatActivity implements LstTeamInterf
     private RecyclerView recycler;
     private LstTeamPresenter lstTeamPresenter;
     private RecyclerView.LayoutManager lManager;
-    private long trainerId = 1;
+    private long trainerId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lst_teams);
 
+        trainerId = getIntent().getLongExtra("trainerId", 0);
+
         recycler = findViewById(R.id.recyclerTeam);
-        lstTeamPresenter = new LstTeamPresenter(this,trainerId);
-        lstTeamPresenter.getTeams(this);
+        lstTeamPresenter = new LstTeamPresenter(this, trainerId);
+        lstTeamPresenter.getTeams(this, trainerId);
     }
 
     @Override
@@ -69,8 +72,7 @@ public class LstTeamsActivity extends AppCompatActivity implements LstTeamInterf
     }
 
     public void goToPokemon(View view) {
-        Intent intent = new Intent(
-                getBaseContext(), LstPokemonView.class);
+        Intent intent = new Intent(getBaseContext(), LstPokemonView.class);
         startActivity(intent);
     }
 
@@ -79,11 +81,9 @@ public class LstTeamsActivity extends AppCompatActivity implements LstTeamInterf
         String teamName = String.valueOf(editText.getText());
         Team team = new Team();
         team.setName(teamName);
-        Trainer trainer = new Trainer();
-        trainer.setId(trainerId);
-        team.setTrainer(trainer);
-        lstTeamPresenter.addTeams(this, team);
-        lstTeamPresenter.getTeams(this);
+
+        lstTeamPresenter.addTeams(this, trainerId, team);
+        lstTeamPresenter.getTeams(this, trainerId);
 
     }
 }

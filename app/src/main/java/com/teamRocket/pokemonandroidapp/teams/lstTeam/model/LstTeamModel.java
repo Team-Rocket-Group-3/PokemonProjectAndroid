@@ -36,9 +36,9 @@ public class LstTeamModel implements LstTeamInterface.Model {
     }
 
     @Override
-    public void addTeam(Context context, Team team, OnLstAddTeamListener onLstAddTeamListener) {
+    public void addTeam(Context context, long trainerId, Team team, OnLstAddTeamListener onLstAddTeamListener) {
         ApiClient apiClient = new ApiClient(context);
-        Call<Team> request = apiClient.addTeam(team);
+        Call<Team> request = apiClient.addTeam(trainerId, team);
         request.enqueue(new Callback<Team>() {
             @Override
             public void onResponse(Call<Team> call, Response<Team> response) {
