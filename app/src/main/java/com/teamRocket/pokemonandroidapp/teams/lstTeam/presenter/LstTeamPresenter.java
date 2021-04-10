@@ -20,7 +20,7 @@ public class LstTeamPresenter implements LstTeamInterface.Presenter {
     }
 
     @Override
-    public void getTeams(Context context) {
+    public void getTeams(Context context, long trainerId) {
         lstTeamModel.getTeamsWS(context,trainerId, new LstTeamInterface.Model.OnLstTeamListener(){
             @Override
             public void resolve(List<Team> teams) {

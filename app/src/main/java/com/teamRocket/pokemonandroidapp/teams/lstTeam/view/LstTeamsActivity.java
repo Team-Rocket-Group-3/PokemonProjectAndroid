@@ -35,7 +35,7 @@ public class LstTeamsActivity extends AppCompatActivity implements LstTeamInterf
 
         recycler = findViewById(R.id.recyclerTeam);
         lstTeamPresenter = new LstTeamPresenter(this, trainerId);
-        lstTeamPresenter.getTeams(this);
+        lstTeamPresenter.getTeams(this, trainerId);
     }
 
     @Override
@@ -83,7 +83,7 @@ public class LstTeamsActivity extends AppCompatActivity implements LstTeamInterf
         team.setName(teamName);
 
         lstTeamPresenter.addTeams(this, trainerId, team);
-        lstTeamPresenter.getTeams(this);
+        lstTeamPresenter.getTeams(this, trainerId);
 
     }
 }

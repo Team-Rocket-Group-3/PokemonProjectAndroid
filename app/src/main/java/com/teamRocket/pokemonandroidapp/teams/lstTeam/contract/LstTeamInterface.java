@@ -19,7 +19,7 @@ public interface LstTeamInterface {
     }
 
     interface Presenter {
-        void getTeams(Context context);
+        void getTeams(Context context, long trainerId);
 
         void addTeams(Context context, long trainerId, Team team);
     }

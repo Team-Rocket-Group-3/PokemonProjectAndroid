@@ -24,8 +24,8 @@ public interface PokemonApiInterface {
     @POST("/teams/{id}/pokemons")
     Call<Pokemon> addPokemonToTeam(@Path("id") long id, @Body Pokemon pokemon);
 
-    @POST("trainers/{id}/teams")
-    Call<Team> addTeam(@Path("id_trainer") long id, @Body Team team);
+    @POST("trainers/{trainerId}/teams")
+    Call<Team> addTeam(@Path("trainerId") long trainerId, @Body Team team);
 
     @GET("/login")
     Call<Trainer> login(@Query("name") String name, @Query("password") String password);
